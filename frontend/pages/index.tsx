@@ -34,7 +34,7 @@ export default function Home() {
           <h2>Analysis</h2>
           <pre>{JSON.stringify(data.analysis, null, 2)}</pre>
 
-          <img src="http://localhost:8000/chart" width="300" />
+          <img src={`${process.env.NEXT_PUBLIC_API_URL}/chart`} width="300" />
         </div>
       )}
     </div>
