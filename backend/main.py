@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, Header
 from fastapi.responses import FileResponse
 from auth import verify_token
@@ -6,6 +7,13 @@ from patent_analysis import analyze_patents
 from db import usage
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 FREE_LIMIT = 3
 
