@@ -5,17 +5,18 @@ export default function Home() {
   const [data, setData] = useState(null);
 
   const generate = async () => {
-    const res = await fetch("http://localhost:8000/generate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ text })
-    });
+  const generate = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/generate`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ text })
+  });
 
-    const result = await res.json();
-    setData(result);
-  };
+  const result = await res.json();
+  setData(result);
+};
 
   return (
     <div style={{ padding: 40 }}>
