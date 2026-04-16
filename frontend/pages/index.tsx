@@ -6,7 +6,7 @@ export default function Home() {
 
   const generate = async () => {
   const generate = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/generate`, {
+  const res = await fetch("https://patent-ai-app-production.up.railway.app/generate", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -34,7 +34,7 @@ export default function Home() {
           <h2>Analysis</h2>
           <pre>{JSON.stringify(data.analysis, null, 2)}</pre>
 
-          <img src={`${process.env.NEXT_PUBLIC_API_URL}/chart`} width="300" />
+          <img src="https://patent-ai-app-production.up.railway.app/chart" />
         </div>
       )}
     </div>
